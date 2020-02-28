@@ -6,7 +6,11 @@ Page({
         // 轮播图的数据
         banners: [],
         // 菜单的数组
-        menus: []
+        menus: [],
+        // 楼层的数据
+        floors: [],
+        // 是否显示回到顶部
+        isShowTop: false
     },
 
     onLoad(){
@@ -43,6 +47,26 @@ Page({
             this.setData({
                 menus: newData
             })
+        });
+
+        // 请求楼层数据
+        request({
+            url: "/home/floordata"
+        }).then(res => {
+            const {message} = res.data;
+            // 赋值给楼层的数组
+            this.setData({
+                floors: message
+            });
         })
-    }
+    },
+
+    // 小程序回到顶部
+    handleToTop(){
+        wx.pageScrollTo({
+            scrollTop: 0,
+            duration: 300
+        })
+    },
+
 })

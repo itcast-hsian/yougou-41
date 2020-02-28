@@ -36,26 +36,36 @@
 
 
     <!-- 楼层布局 -->
-    <view class="floor">
+    <view class="floor"
+    wx:for="{{floors}}"
+    wx:key="index">
         <!-- 楼层头部 -->
         <image
         class="floor-title" 
         mode="aspectFill"
-        src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_title.png"></image>
+        src="{{item.floor_title.image_src}}">
+        </image>
 
         <!-- 楼层内容 -->
         <view class="floor-content">
             <!-- 左边大图 -->
             <view class="floor-content-left">
-                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_1@2x.png"></image>
+                <image mode="aspectFill" src="{{item.product_list[0].image_src}}"></image>
             </view>
             <!-- 右边的四个小图 -->
             <view class="floor-content-right">
-                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
-                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
-                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
-                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+                <!-- 循环数组不包含第一张图片 -->
+                <block wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index > 0}}">
+                    <!-- 循环体的item是属于当前的循环体的，和外面的没关系 -->
+                    <image mode="aspectFill" src="{{item.image_src}}"></image>
+                </block>
             </view>
         </view>
+    </view>
+
+    <!-- 回到顶部 -->
+    <view class="toTop" bindtap="handleToTop" wx:if="{{isShowTop}}">
+        <view class="arrow"></view>
+        <text>顶部</text>
     </view>
 </view>

@@ -76,3 +76,37 @@
     width: 233rpx;
     height: 188rpx;
 }
+
+.floor + .floor .floor-content-right image{
+    width: 193rpx;
+}
+
+.floor + .floor .floor-content-right image:nth-child(3n + 1){
+    width: 273rpx;
+}
+
+
+.toTop{
+    width:90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+    position: fixed;
+    right: 20rpx;
+    bottom:50rpx;
+}
+
+.arrow{
+    width:12px;
+    height:12px;
+    border-left: 1px #333 solid;
+    border-top: 1px #333 solid;
+    transform: rotate(45deg);
+    position: relative;
+    top: 10rpx;
+}
