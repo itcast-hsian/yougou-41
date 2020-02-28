@@ -27,3 +27,52 @@
     width: 750rpx;
     height: 340rpx;
 }
+
+.menus{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:20rpx 0;
+}
+
+.menus image{
+    width:128rpx;
+    height:140rpx;
+}
+
+.floor{
+    margin-bottom: 20px;
+}
+
+.floor-title{
+    width:100%;
+    height: 60rpx;
+}
+
+.floor-content{
+    display: flex;
+    justify-content: space-between;
+    padding:15rpx;
+}
+
+.floor-content-left{
+    margin-right: 12rpx;
+}
+
+.floor-content-left image{
+    width: 232rpx;
+    height: 386rpx;
+}
+
+.floor-content-right{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+} 
+
+
+.floor-content-right image{
+    width: 233rpx;
+    height: 188rpx;
+}

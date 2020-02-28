@@ -24,4 +24,38 @@
           </swiper-item>
         </block>
     </swiper>
+
+    <!-- 中间的导航菜单 -->
+    <view class="menus">
+        <block wx:for="{{menus}}" wx:key="index">
+            <navigator url="{{item.url}}" open-type="{{item.open_type}}">
+                <image src="{{item.image_src}}" mode="aspectFill"></image>
+            </navigator>
+        </block>
+    </view>
+
+
+    <!-- 楼层布局 -->
+    <view class="floor">
+        <!-- 楼层头部 -->
+        <image
+        class="floor-title" 
+        mode="aspectFill"
+        src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_title.png"></image>
+
+        <!-- 楼层内容 -->
+        <view class="floor-content">
+            <!-- 左边大图 -->
+            <view class="floor-content-left">
+                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_1@2x.png"></image>
+            </view>
+            <!-- 右边的四个小图 -->
+            <view class="floor-content-right">
+                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+                <image mode="aspectFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+            </view>
+        </view>
+    </view>
 </view>
