@@ -20,6 +20,7 @@
     text-align: center;
     padding: 20rpx 0;
     border-bottom: 1px #ddd solid;
+    position: relative;
 }
 
 /* 右边的内容 */
@@ -29,4 +30,21 @@
 
 .right image{
     width: 100rpx;
+}
+
+.active{
+    color: red;
+    background:#fff;
+}
+
+.active::before{
+    display: block;
+    content:  "";
+    width: 2px;
+    height: 16px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top:50%;
+    transform: translateY(-8px)
 }

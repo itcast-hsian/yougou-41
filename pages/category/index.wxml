@@ -8,7 +8,10 @@
         <view class="left">
             <!-- 菜单的子选项 -->
             <block wx:for="{{ 100 }}" wx:key="index">
-                <view class="menu-item">
+                <view 
+                class="menu-item {{ current === index ? 'active' : '' }}" 
+                bindtap="handleClick" 
+                data-index="{{index}}">
                     热门推荐
                 </view>
             </block>
