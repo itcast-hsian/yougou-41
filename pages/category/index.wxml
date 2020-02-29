@@ -1,2 +1,37 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="container">
+    <!-- 引入搜索公共组件 -->
+    <search/>
+    
+    <!-- 内容部分 -->
+    <view class="content">
+        <!-- 左边的菜单 -->
+        <view class="left">
+            <!-- 菜单的子选项 -->
+            <block wx:for="{{ 100 }}" wx:key="index">
+                <view class="menu-item">
+                    热门推荐
+                </view>
+            </block>
+        </view>
+
+        <!-- 右边的内容 -->
+        <view class="right">
+            <!-- 子分类 -->
+            <view class="category-list">
+                <view class="category-title">
+                    电视
+                </view>
+
+                <view class="product-list">
+                    <!-- 品牌分类列表 -->
+                    <block wx:for="{{ 50 }}" wx:key="index">
+                        <navigator url="">
+                            <image src="https://img12.360buyimg.com/deepvisual/s300x150_jfs/t1/96506/31/13248/7971/5e5626a0Efea3bcac/5c7268180413bad8.png!cc_300x150.webp"></image>
+                            <view>小米电视</view>
+                        </navigator>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

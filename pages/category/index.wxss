@@ -1,1 +1,32 @@
-/* pages/category/index.wxss */
+/* 如果同时设置了top和bottom，该元素的高度取两个的距离 */
+.content{
+    position: fixed;
+    top: 100rpx;
+    bottom: 0;
+    width: 750rpx;
+    display: flex;
+    justify-content: space-between
+}
+
+/* 左边的菜单 */
+.left{
+    width: 200rpx;
+    height: 100%;
+    background: #eee;
+    overflow: auto;
+}
+
+.left .menu-item{
+    text-align: center;
+    padding: 20rpx 0;
+    border-bottom: 1px #ddd solid;
+}
+
+/* 右边的内容 */
+.right{
+
+}
+
+.right image{
+    width: 100rpx;
+}
