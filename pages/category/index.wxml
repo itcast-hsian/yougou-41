@@ -7,12 +7,12 @@
         <!-- 左边的菜单 -->
         <view class="left">
             <!-- 菜单的子选项 -->
-            <block wx:for="{{ 100 }}" wx:key="index">
+            <block wx:for="{{list}}" wx:key="index">
                 <view 
                 class="menu-item {{ current === index ? 'active' : '' }}" 
                 bindtap="handleClick" 
                 data-index="{{index}}">
-                    热门推荐
+                    {{item.cat_name}}
                 </view>
             </block>
         </view>
@@ -20,21 +20,27 @@
         <!-- 右边的内容 -->
         <view class="right">
             <!-- 子分类 -->
-            <view class="category-list">
-                <view class="category-title">
-                    / <text>电视</text> /
-                </view>
+            <block wx:for="{{ list[current].children }}" wx:key="index">
+                <view class="category-list">
+                    <view class="category-title">
+                        / <text>{{item.cat_name}}</text> /
+                    </view>
 
-                <view class="product-list">
-                    <!-- 品牌分类列表 -->
-                    <block wx:for="{{ 50 }}" wx:key="index">
-                        <navigator url="">
-                            <image mode="aspectFill" src="https://img12.360buyimg.com/deepvisual/s300x150_jfs/t1/96506/31/13248/7971/5e5626a0Efea3bcac/5c7268180413bad8.png!cc_300x150.webp"></image>
-                            <view>小米电视</view>
-                        </navigator>
-                    </block>
+                    <view class="product-list">
+                        <!-- 品牌分类列表 -->
+                        <block 
+                        wx:for="{{ item.children }}" 
+                        wx:key="index" 
+                        wx:for-item="subItem"
+                        wx:for-index="subIndex">
+                            <navigator url="">
+                                <image mode="widthFix" src="{{ subItem.cat_icon }}"></image>
+                                <view>{{ subItem.cat_name }}</view>
+                            </navigator>
+                        </block>
+                    </view>
                 </view>
-            </view>
+            </block>
         </view>
     </view>
 </view>

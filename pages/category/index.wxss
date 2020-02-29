@@ -80,5 +80,4 @@
 
 .product-list navigator image{
     width:100%;
-    height: 92rpx;
 }
