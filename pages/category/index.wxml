@@ -22,14 +22,14 @@
             <!-- 子分类 -->
             <view class="category-list">
                 <view class="category-title">
-                    电视
+                    / <text>电视</text> /
                 </view>
 
                 <view class="product-list">
                     <!-- 品牌分类列表 -->
                     <block wx:for="{{ 50 }}" wx:key="index">
                         <navigator url="">
-                            <image src="https://img12.360buyimg.com/deepvisual/s300x150_jfs/t1/96506/31/13248/7971/5e5626a0Efea3bcac/5c7268180413bad8.png!cc_300x150.webp"></image>
+                            <image mode="aspectFill" src="https://img12.360buyimg.com/deepvisual/s300x150_jfs/t1/96506/31/13248/7971/5e5626a0Efea3bcac/5c7268180413bad8.png!cc_300x150.webp"></image>
                             <view>小米电视</view>
                         </navigator>
                     </block>
