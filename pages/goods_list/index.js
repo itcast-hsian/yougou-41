@@ -1,4 +1,5 @@
-// pages/goods_list/index.js
+import request from "../../utils/request.js"
+
 Page({
 
     /**
@@ -6,12 +7,14 @@ Page({
      */
     data: {
         // 关键字
-        keyword: ""
+        keyword: "",
+        // 商品的列表
+        goods: []
     },
 
     /**
      * 生命周期函数--监听页面加载
-     * options是url的参数对象
+     * options是url的参数对象，只有onLoad才可以拿到参数
      */
     onLoad: function (options) {
         // keyword是url中的参数
@@ -19,55 +22,30 @@ Page({
   
         this.setData({
             keyword
+        });
+
+        // 请求商品列表
+        request({
+            url: "/goods/search",
+            data: {
+                query: this.data.keyword,
+                pagenum: 1,
+                pagesize: 10
+            }
+        }).then(res => {
+            const {message} = res.data;
+
+            // 遍历修改goods下面的价格
+            const goods = message.goods.map(v => {
+                // 给价格保留两个小数点
+                v.goods_price = Number(v.goods_price).toFixed(2);
+                return v
+            })
+
+            // 把message商品列表保存到list
+            this.setData({
+                goods
+            })
         })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
     }
 })

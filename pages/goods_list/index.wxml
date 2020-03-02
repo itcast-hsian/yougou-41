@@ -19,13 +19,20 @@
 
     <!-- 商品列表 -->
     <view class="list">
-        <navigator url="" class="goods-item">
-            <image mode="aspectFill" src="https://img14.360buyimg.com/jdcms/s150x150_jfs/t27364/161/2636284768/148392/5bd43ea2/5cd7588bNb22ec4dc.jpg.webp"></image>
+        <block wx:for="{{goods}}" wx:key="index">
+            <navigator url="" class="goods-item">
+                <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
 
-            <view class="goods-item-right">
-                <view class="goods-title">【京选好货】空降师加厚帆布腰带美版多色军迷鹰标男士户外牛仔腰带 黑色 均码</view>
-                <view class="price"><text>￥</text>100.00</view>
-            </view>
-        </navigator>
+                <view class="goods-item-right">
+                    <view class="goods-title">{{item.goods_name}}</view>
+                    <view class="price"><text>￥</text>{{item.goods_price}}</view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+
+    <!-- 拖动到底部的提示 -->
+    <view class="load-more">
+        我也是有底线的  
     </view>
 </view>
