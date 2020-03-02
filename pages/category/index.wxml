@@ -1,7 +1,7 @@
 <view class="container">
     <!-- 引入搜索公共组件 -->
     <search/>
-    
+   
     <!-- 内容部分 -->
     <view class="content">
         <!-- 左边的菜单 -->
@@ -34,7 +34,7 @@
                         wx:for-item="subItem"
                         wx:for-index="subIndex">
                             <navigator url="">
-                                <image mode="widthFix" src="{{ subItem.cat_icon }}"></image>
+                                <image mode="aspectFill" src="{{ subItem.cat_icon }}"></image>
                                 <view>{{ subItem.cat_name }}</view>
                             </navigator>
                         </block>

@@ -79,5 +79,6 @@
 }
 
 .product-list navigator image{
-    width:100%;
+    width:120rpx;
+    height: 120rpx;
 }
