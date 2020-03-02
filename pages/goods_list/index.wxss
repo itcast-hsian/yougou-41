@@ -1,0 +1,63 @@
+/* 顶部搜索 */
+.search{
+    background: rgba(239, 239, 239);
+    padding: 20rpx;
+}
+
+.search-input{
+    background: #fff;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    color: #999;
+    font-size:14px;
+}
+
+.search-input icon{
+    margin-right: 5px;
+}
+
+.tab{
+    padding:20rpx;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px #eee solid;
+}
+
+.goods-item{
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px #eee solid;
+}
+
+.goods-item image{
+    width: 200rpx;
+    height: 200rpx;
+    flex-shrink: 0;
+}
+
+.goods-item-right{
+    flex: 1;
+    padding-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.goods-title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.price{
+    color:red;
+    font-size: 22px;
+}
+
+.price text{
+    font-size: 12px;
+}

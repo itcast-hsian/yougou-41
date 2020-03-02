@@ -1,3 +1,5 @@
+
+
 /* 如果同时设置了top和bottom，该元素的高度取两个的距离 */
 .content{
     position: fixed;

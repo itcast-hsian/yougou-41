@@ -1,1 +1,2 @@
-@import "common/style.wxss"
+@import "common/style.wxss";
+@import "common/font.wxss";
