@@ -17,3 +17,15 @@
 .search-input icon{
     margin-right: 5px;
 }
+
+.left{
+    justify-content: flex-start;
+}
+
+.center{
+    justify-content: center;
+}
+
+.right{
+    justify-content: flex-end;
+}

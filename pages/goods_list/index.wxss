@@ -1,21 +1,6 @@
 /* 顶部搜索 */
 .search{
-    background: rgba(239, 239, 239);
-    padding: 20rpx;
-}
-
-.search-input{
-    background: #fff;
-    height: 60rpx;
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    color: #999;
-    font-size:14px;
-}
-
-.search-input icon{
-    margin-right: 5px;
+    background: rgba(239, 239, 239)!important;
 }
 
 .tab{
