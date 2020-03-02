@@ -5,14 +5,21 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        // 关键字
+        keyword: ""
     },
 
     /**
      * 生命周期函数--监听页面加载
+     * options是url的参数对象
      */
     onLoad: function (options) {
-
+        // keyword是url中的参数
+        const {keyword} = options;
+  
+        this.setData({
+            keyword
+        })
     },
 
     /**

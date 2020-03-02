@@ -33,7 +33,7 @@
                         wx:key="index" 
                         wx:for-item="subItem"
                         wx:for-index="subIndex">
-                            <navigator url="">
+                            <navigator url="/pages/goods_list/index?keyword={{subItem.cat_name}}">
                                 <image mode="aspectFill" src="{{ subItem.cat_icon }}"></image>
                                 <view>{{ subItem.cat_name }}</view>
                             </navigator>
