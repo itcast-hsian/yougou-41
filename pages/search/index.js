@@ -28,7 +28,14 @@ Page({
         });
 
         // 如果value有值才发起请求
-        if(!value) return;
+        if(!value) {
+            // 把搜索建议的数组清空
+            this.setData({
+                recommend: []
+            });
+
+            return;
+        };
 
         // 请求搜索建议
         request({
@@ -42,6 +49,15 @@ Page({
             this.setData({
                 recommend: message
             })
+        })
+    },
+
+    // 点击取消按钮时候触发的事件
+    handleCancel(){
+        // 清空输入框的值和搜索建议的列表
+        this.setData({
+            inputValue: "",
+            recommend: ""
         })
     }
 })

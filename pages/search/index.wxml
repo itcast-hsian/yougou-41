@@ -5,9 +5,9 @@
             <view class="search-input">
                 <icon type="search" size="20"/>
                 <!-- bindinput类似于oninput，监听用户的输入事件 -->
-                <input bindinput="handleInput" placeholder="请输入您想要的商品"></input>
+                <input bindinput="handleInput" value="{{inputValue}}" placeholder="请输入您想要的商品"></input>
             </view>
-            <view wx:if="{{inputValue}}" class="cancel-button">取消</view>
+            <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
             
             <!-- 搜索建议的列表 -->
             <!-- recommend.length是判断数组有值的时候才显示下拉列表 -->
