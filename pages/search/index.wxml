@@ -5,15 +5,27 @@
             <view class="search-input">
                 <icon type="search" size="20"/>
                 <!-- bindinput类似于oninput，监听用户的输入事件 -->
-                <input bindinput="handleInput" value="{{inputValue}}" placeholder="请输入您想要的商品"></input>
+                <!-- bindconfirm是按下回车键时候触发的事件 -->
+                <input 
+                bindinput="handleInput" 
+                value="{{inputValue}}" 
+                placeholder="请输入您想要的商品"
+                bindconfirm="handleEnter"
+                bindblur="handleBlur">
+                </input>
             </view>
-            <view wx:if="{{inputValue}}" class="cancel-button" bindtap="handleCancel">取消</view>
+            <view
+             wx:if="{{inputValue}}" 
+             class="cancel-button" 
+             bindtap="handleCancel">取消</view>
             
             <!-- 搜索建议的列表 -->
             <!-- recommend.length是判断数组有值的时候才显示下拉列表 -->
             <view class="recommend" wx:if="{{recommend.length}}">
-
-                <navigator url="" wx:for="{{recommend}}" wx:key="index">
+                <navigator 
+                url="" 
+                wx:for="{{recommend}}" 
+                wx:key="index">
                     {{item.goods_name}}
                 </navigator>
             </view>
@@ -23,15 +35,19 @@
     <!-- 历史搜索 -->
     <view class="history-title">
         <view class="title-header">历史搜索</view>
-        <icon type="clear" size="20"></icon>
+        <icon type="clear" size="20" bindtap="handleClear">
+        </icon>
     </view>
 
     <!-- 历史搜索列表 -->
     <view class="history-list">
-        <view class="history-item">小米</view>
-        <view class="history-item">小米123</view>
-        <view class="history-item">小米4345345</view>
-        <view class="history-item">小米123</view>
-        <view class="history-item">小米4345345</view>
+        <navigator
+        wx:for="{{history}}"
+        wx:key="index"
+        class="history-item"
+        url="/pages/goods_list/index?keyword={{item}}"
+        >
+        {{item}}
+        </navigator> 
     </view>
 </view>
