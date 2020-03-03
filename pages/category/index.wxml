@@ -5,7 +5,7 @@
     <!-- 内容部分 -->
     <view class="content">
         <!-- 左边的菜单 -->
-        <view class="left">
+        <scroll-view scroll-y class="left">
             <!-- 菜单的子选项 -->
             <block wx:for="{{list}}" wx:key="index">
                 <view 
@@ -15,10 +15,10 @@
                     {{item.cat_name}}
                 </view>
             </block>
-        </view>
+        </scroll-view>
 
         <!-- 右边的内容 -->
-        <view class="right">
+        <scroll-view scroll-y class="right">
             <!-- 子分类 -->
             <block wx:for="{{ list[current].children }}" wx:key="index">
                 <view class="category-list">
@@ -41,6 +41,6 @@
                     </view>
                 </view>
             </block>
-        </view>
+        </scroll-view>
     </view>
 </view>
