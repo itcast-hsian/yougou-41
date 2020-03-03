@@ -13,7 +13,7 @@
             <!-- recommend.length是判断数组有值的时候才显示下拉列表 -->
             <view class="recommend" wx:if="{{recommend.length}}">
 
-                <navigator url="" wx:for="{{recommend}}" wx:if="index">
+                <navigator url="" wx:for="{{recommend}}" wx:key="index">
                     {{item.goods_name}}
                 </navigator>
             </view>

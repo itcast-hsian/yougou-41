@@ -8,8 +8,12 @@ Page({
     data: {
         // 输入框的值
         inputValue: "",
+        // 上次输入框的值
+        lastValue: "",
         // 搜索建议
-        recommend: []
+        recommend: [],
+        // 设置一个开关，必须等待上一次的请求返回
+        loading: false
     },
 
     /**
@@ -38,18 +42,41 @@ Page({
         };
 
         // 请求搜索建议
-        request({
-            url: "/goods/qsearch",
-            data: {
-                query: value
-            }
-        }).then(res => {
-            const {message} = res.data;
-            // 保存到搜索建议的数组
+        this.getRecommend();
+    },
+
+    // 请求搜索建议
+    getRecommend(){
+        // 必须保证进门时候灯是关着的
+        if (this.data.loading == false){
+
+            // 进门后开灯
             this.setData({
-                recommend: message
+                loading: true,
+                // 记录当前搜索的输入框的值
+                lastValue: this.data.inputValue
             })
-        })
+
+            // 请求搜索建议
+            request({
+                url: "/goods/qsearch",
+                data: {
+                    query: this.data.inputValue
+                }
+            }).then(res => {
+                const { message } = res.data;
+                // 保存到搜索建议的数组
+                this.setData({
+                    recommend: message,
+                    loading: false // 完成离开，出门时候就关灯
+                });
+
+                // 判断是否是inputValue值是最新,如果不是的话再次请求接口
+                if (this.data.lastValue !== this.data.inputValue){
+                    this.getRecommend();
+                }
+            })
+        }
     },
 
     // 点击取消按钮时候触发的事件
