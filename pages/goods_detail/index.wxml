@@ -63,6 +63,11 @@
 
     <!-- 页脚的按钮，固定在底部 -->
     <view class="btns">
+        <!-- 联系客服的按钮 -->
+        <view class="contact">
+            <button open-type="contact">打开客服会话窗口</button>
+        </view>
+
         <view class="btn-white">
             <view class="iconfont icon-kefu"></view>
             <text>联系客服</text>

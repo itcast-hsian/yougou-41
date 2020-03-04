@@ -95,6 +95,19 @@
     background: red;
 }
 
+.contact{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    left:0; 
+    top:0;
+    overflow: auto;
+    opacity: 0;
+}
+
+.contact button{
+    height: 100rpx;
+}
 
 .tab{
     display: flex;
