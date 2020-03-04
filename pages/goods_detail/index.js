@@ -10,7 +10,7 @@ Page({
         // 商品的详情
         detail: {},
         // 记录tab当前的索引
-        current: 1,
+        current: 0,
         // 需要做图片预览的数组
         picUrls: []
     },
@@ -58,6 +58,13 @@ Page({
         wx.previewImage({
             current: this.data.picUrls[index], // 当前显示图片的http链接
             urls: this.data.picUrls // 需要预览的图片http链接列表
+        })
+    },
+
+    // 跳转到购物车页
+    handleToCart(){
+        wx.switchTab({
+            url: '/pages/cart/index',
         })
     }
 })

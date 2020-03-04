@@ -72,7 +72,9 @@
             <view class="iconfont icon-kefu"></view>
             <text>联系客服</text>
         </view>
-        <view class="btn-white">
+
+        <!-- handleToCart跳转到购物车页 -->
+        <view class="btn-white" bindtap="handleToCart">
             <view class="iconfont icon-gouwuche"></view>
             <text>购物车</text>
         </view>
