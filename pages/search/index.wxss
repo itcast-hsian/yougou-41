@@ -72,3 +72,7 @@
     background: #eee;
     margin: 0 0 20rpx 20rpx;
 }
+
+.container{
+    min-height: 100vh;
+}

@@ -141,5 +141,18 @@ Page({
         wx.redirectTo({
             url: "/pages/goods_list/index?keyword=" + this.data.inputValue
         })
+    },
+
+    // 点击页面时候判断是否展示搜索框的下拉列表
+    handleShowList(e){
+        // e.target是当然点击的元素
+        const {onlyid} = e.target.dataset;
+
+        // 如果id不存在，说明点击并不是下拉列表
+        if (!onlyid){
+            this.setData({
+                recommend: []
+            })
+        }
     }
 })

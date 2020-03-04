@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtap="handleShowList">
     <!-- 搜索栏 -->
     <view class="search-wrapper">
         <view class="search">
@@ -11,7 +11,7 @@
                 value="{{inputValue}}" 
                 placeholder="请输入您想要的商品"
                 bindconfirm="handleEnter"
-                bindblur="handleBlur">
+                >
                 </input>
             </view>
             <view
@@ -21,11 +21,12 @@
             
             <!-- 搜索建议的列表 -->
             <!-- recommend.length是判断数组有值的时候才显示下拉列表 -->
-            <view class="recommend" wx:if="{{recommend.length}}">
+            <view id="recommend" class="recommend" wx:if="{{recommend.length}}">
                 <navigator 
                 url="" 
                 wx:for="{{recommend}}" 
-                wx:key="index">
+                wx:key="index"
+                data-onlyid="{{item.goods_id}}">
                     {{item.goods_name}}
                 </navigator>
             </view>
