@@ -7,7 +7,11 @@
     >
         <block wx:for="{{detail.pics}}" wx:key="index">
             <swiper-item>
-                <image mode="aspectFill" src="{{item.pics_big}}" bindtap="handlePreview"></image>
+                <image 
+                mode="aspectFill" 
+                src="{{item.pics_big}}" 
+                bindtap="handlePreview"
+                data-index="{{index}}"></image>
             </swiper-item>
         </block>
     </swiper>
