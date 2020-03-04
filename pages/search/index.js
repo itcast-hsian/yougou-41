@@ -43,7 +43,7 @@ Page({
         });
 
         // 如果value有值才发起请求
-        if(!value) {
+        if(!value.trim()) {
             // 把搜索建议的数组清空
             this.setData({
                 recommend: []
@@ -59,7 +59,7 @@ Page({
     // 请求搜索建议
     getRecommend(){
         // 必须保证进门时候灯是关着的
-        if (this.data.loading == false){
+        //if (this.data.loading == false){
 
             // 进门后开灯
             this.setData({
@@ -87,7 +87,7 @@ Page({
                     this.getRecommend();
                 }
             })
-        }
+        //}
     },
 
     // 点击取消按钮时候触发的事件
