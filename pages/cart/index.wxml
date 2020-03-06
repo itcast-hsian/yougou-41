@@ -52,6 +52,7 @@
                         <!-- 点击数量减一 -->
                         <view class="calc-button"
                         bindtap="handleCalc"
+                        data-number="{{-1}}"
                         data-index="{{index}}">-</view>
 
                         <input value="{{item.number}}"></input>
@@ -59,6 +60,7 @@
                         <!-- 点击数量加1 -->
                         <view class="calc-button" 
                         bindtap="handleCalc" 
+                        data-number="{{1}}"
                         data-index="{{index}}">+</view>
                     </view>
                 </view>

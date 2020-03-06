@@ -74,10 +74,11 @@ Page({
 
     // 数量加1
     handleCalc(e){
-        // 点击的索引值
-        const {index} = e.currentTarget.dataset;
+        // index是点击的索引值, number可能是1，也可能是-1
+        const {index, number} = e.currentTarget.dataset;
+
         // 给当前点击的商品的数量加1，但是页面不会刷新
-        this.data.goods[index].number += 1;
+        this.data.goods[index].number += number;
 
         // 重新修改data的goods的值
         this.setData({
