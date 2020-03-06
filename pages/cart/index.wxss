@@ -1,1 +1,166 @@
-/* pages/cart/index.wxss */
+.address-info{
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-info .tel{
+    display: flex;
+    align-items: center;
+}
+
+.address-info .tel::after{
+    display: block;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-left: 1px #999 solid;
+    border-top: 1px #999 solid;
+    transform: rotate(135deg);
+    margin-left:10px;
+}
+
+
+.address-detail{
+    padding: 20rpx;
+    padding-top:0;
+}
+
+.address image{
+    width:750rpx;
+    height: 15rpx;
+}
+
+.goods-list-title{
+    border-top:20rpx #eee solid;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    border-bottom:1px #eee solid;
+}
+
+.goods-list-title view{
+    margin-right: 20rpx;
+}
+
+.goods-list{
+    padding-bottom: 120rpx;
+}
+
+.goods-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+    border-bottom: 1px #eee solid;
+}
+
+.goods-item icon{
+    margin-right: 20rpx;
+}
+
+.goods-item image{
+    width: 160rpx;
+    height: 160rpx;
+    flex-shrink: 0;
+}
+
+.goods-item-right{
+    height: 160rpx;
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex:1;
+}
+
+.goods-title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.goods-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goods-price{
+    color: red;
+}
+
+.goods-price text{
+    font-size: 12px;
+}
+
+.goods-number{
+    display: flex;
+    align-items: center;
+}
+
+.goods-number .calc-button{
+    width: 20px;
+    height: 20px;
+    border: 1px #999 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goods-number input{
+    width: 36px;
+    text-align: center;
+}
+
+.checkout{
+    position: fixed;
+    left: 0; 
+    bottom: 0;
+    width: 750rpx;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    z-index: 9;
+}
+
+.allselect{
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+}
+
+.allselect icon{
+    margin-right: 20rpx;
+}
+
+.allprice{
+    flex: 1;
+    padding:0 20px;
+}
+
+.allprice-top text{
+    color:red;
+}
+
+.allprice-top text text{
+    font-size: 12px;
+}
+
+.allprice-btm{
+    color: #999;
+    font-size: 12px;
+}
+
+.checkout-btn{
+    width: 30%;
+    height: 100%;
+    background: #ff2d4a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
