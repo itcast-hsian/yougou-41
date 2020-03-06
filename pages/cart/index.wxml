@@ -1,15 +1,24 @@
 <view class="container">
     <!-- 收货地址 -->
-    <view class="address">
+    <view class="address" wx:if="{{address.name}}">
         <view class="address-info">
-            <view>收货人：苏</view>
-            <view class="tel">1380013800</view>
+            <view>收货人：{{address.name}}</view>
+            <view class="tel">{{address.tel}}</view>
         </view>
 
         <view class="address-detail">
-            收货地址：广东广州天河吉山
+            收货地址：{{address.detail}}
         </view>
 
+        <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
+    </view>
+
+    <!-- 获取收货地址的按钮 -->
+    <view class="address" wx:if="{{!address.name}}" bindtap="handleGetAddress">
+        <view class="address-info">
+            <view>获取收货地址</view>
+            <view class="tel"></view>
+        </view>
         <image mode="aspectFill" src="../../images/cart_border@2x.png"></image>
     </view>
 
@@ -22,7 +31,7 @@
     <!-- 商品列表 -->
     <view class="goods-list">
         <!-- 商品的单项, 需要循环的 -->
-        <view class="goods-item" wx:for="{{5}}">
+        <view class="goods-item" wx:for="{{5}}" wx:key="index">
             <icon type="success" color="red"></icon>
             <image mode="aspectFill" src="https://img30.360buyimg.com/jdcms/s150x150_jfs/t1/84711/17/12205/230446/5e436e57E124bbbe4/5fb5f662b59689fa.jpg.webp"></image>
 

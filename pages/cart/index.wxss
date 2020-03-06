@@ -29,6 +29,7 @@
 .address image{
     width:750rpx;
     height: 15rpx;
+    display: block;
 }
 
 .goods-list-title{
