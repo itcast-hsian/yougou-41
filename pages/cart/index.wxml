@@ -34,7 +34,9 @@
         <view class="goods-item" wx:for="{{goods}}" wx:key="index">
             <!-- 是否选中 -->
             <icon type="success" color="red"></icon>
-            <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+            <navigator url="/pages/goods_detail/index?id={{item.goods_id}}">
+                <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
+            </navigator>
 
             <!-- 商品信息右侧 -->
             <view class="goods-item-right">
@@ -47,9 +49,17 @@
                     </view>
                     <!-- 商品的数量 -->
                     <view class="goods-number">
-                        <view class="calc-button">-</view>
+                        <!-- 点击数量减一 -->
+                        <view class="calc-button"
+                        bindtap="handleCalc"
+                        data-index="{{index}}">-</view>
+
                         <input value="{{item.number}}"></input>
-                        <view class="calc-button">+</view>
+
+                        <!-- 点击数量加1 -->
+                        <view class="calc-button" 
+                        bindtap="handleCalc" 
+                        data-index="{{index}}">+</view>
                     </view>
                 </view>
             </view>
@@ -66,7 +76,7 @@
         <view class="allprice">
             <view class="allprice-top">合计
                 <text>
-                    <text>￥</text>151221
+                    <text>￥</text>{{allPrice}}
                 </text>
             </view>
             <view class="allprice-btm">包含运费</view>

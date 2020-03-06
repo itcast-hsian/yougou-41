@@ -8,7 +8,9 @@ Page({
         // 收货地址
         address: {},
         // 本地的商品列表
-        goods: []
+        goods: [],
+        // 总价格
+        allPrice: 0
     },
 
     /**
@@ -26,7 +28,10 @@ Page({
         // 因为data和onload只会执行一次，所以需要在每次打开页面都获取一次本地的数据
         this.setData({
             goods: wx.getStorageSync("goods") || []
-        })
+        });
+
+        // 计算总价格
+        this.handleAllPrice();
     },
 
     // 获取收货地址
@@ -49,6 +54,34 @@ Page({
                 // 保存到本地
                 wx.setStorageSync('address', this.data.address);
             }
+        })
+    },
+
+    // 计算总价格
+    handleAllPrice(){
+        let price = 0;
+        // 循环添加商品的价格
+        this.data.goods.forEach(v => {
+            // v是数组的对象
+            price += v.goods_price;
+        })
+
+        // 修改总价格
+        this.setData({
+            allPrice: price
+        })
+    },
+
+    // 数量加1
+    handleCalc(e){
+        // 点击的索引值
+        const {index} = e.currentTarget.dataset;
+        // 给当前点击的商品的数量加1，但是页面不会刷新
+        this.data.goods[index].number += 1;
+
+        // 重新修改data的goods的值
+        this.setData({
+            goods: this.data.goods
         })
     }
 })
