@@ -31,23 +31,24 @@
     <!-- 商品列表 -->
     <view class="goods-list">
         <!-- 商品的单项, 需要循环的 -->
-        <view class="goods-item" wx:for="{{1}}" wx:key="index">
+        <view class="goods-item" wx:for="{{goods}}" wx:key="index">
+            <!-- 是否选中 -->
             <icon type="success" color="red"></icon>
-            <image mode="aspectFill" src="https://img30.360buyimg.com/jdcms/s150x150_jfs/t1/84711/17/12205/230446/5e436e57E124bbbe4/5fb5f662b59689fa.jpg.webp"></image>
+            <image mode="aspectFill" src="{{item.goods_small_logo}}"></image>
 
             <!-- 商品信息右侧 -->
             <view class="goods-item-right">
                 <view class="goods-title">
-                    商品信息右侧商品信
+                    {{item.goods_name}}
                 </view>
                 <view class="goods-info">
                     <view class="goods-price">
-                        <text>￥</text>25210
+                        <text>￥</text>{{item.goods_price}}
                     </view>
                     <!-- 商品的数量 -->
                     <view class="goods-number">
                         <view class="calc-button">-</view>
-                        <input value="1"></input>
+                        <input value="{{item.number}}"></input>
                         <view class="calc-button">+</view>
                     </view>
                 </view>

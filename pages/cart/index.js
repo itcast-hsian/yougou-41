@@ -6,7 +6,9 @@ Page({
      */
     data: {
         // 收货地址
-        address: {}
+        address: {},
+        // 本地的商品列表
+        goods: []
     },
 
     /**
@@ -17,6 +19,13 @@ Page({
         this.setData({
             // 如果本地没有address就等于一个空对象
             address: wx.getStorageSync("address") || {}
+        })
+    },
+
+    onShow(){
+        // 因为data和onload只会执行一次，所以需要在每次打开页面都获取一次本地的数据
+        this.setData({
+            goods: wx.getStorageSync("goods") || []
         })
     },
 
