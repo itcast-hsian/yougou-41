@@ -63,13 +63,16 @@ Page({
         // 循环添加商品的价格
         this.data.goods.forEach(v => {
             // v是数组的对象
-            price += v.goods_price;
+            price += v.goods_price * v.number;
         })
 
         // 修改总价格
         this.setData({
             allPrice: price
         })
+        
+        // 修改本地的数据
+        wx.setStorageSync("goods", this.data.goods)
     },
 
     // 数量加1
@@ -91,19 +94,27 @@ Page({
                     if (res.confirm) {
                         // 删除商品
                         this.data.goods.splice(index, 1)
-                        
-                        // 重新修改data的goods的值
-                        this.setData({
-                            goods: this.data.goods
-                        })
+                    }else{
+                        // 如果点击取消的话重新加1
+                        this.data.goods[index].number += 1;
                     }
+
+                    // 重新修改data的goods的值
+                    this.setData({
+                        goods: this.data.goods
+                    })
                 }
             })
         }
+
 
         // 重新修改data的goods的值
         this.setData({
             goods: this.data.goods
         });
+        
+
+        // 计算总价格
+        this.handleAllPrice();
     }
 })
