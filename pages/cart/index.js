@@ -80,9 +80,30 @@ Page({
         // 给当前点击的商品的数量加1，但是页面不会刷新
         this.data.goods[index].number += number;
 
+        // 判断如果数量为0时候，提示用户是否删除商品
+        if (this.data.goods[index].number === 0){
+            // 弹窗，文档地址：https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html
+            wx.showModal({
+                title: '提示',
+                content: '是否删除商品',
+                success: (res) => {
+                    // 确认删除
+                    if (res.confirm) {
+                        // 删除商品
+                        this.data.goods.splice(index, 1)
+                        
+                        // 重新修改data的goods的值
+                        this.setData({
+                            goods: this.data.goods
+                        })
+                    }
+                }
+            })
+        }
+
         // 重新修改data的goods的值
         this.setData({
             goods: this.data.goods
-        })
+        });
     }
 })
