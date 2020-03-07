@@ -2,7 +2,13 @@
 <cover-view class="tab-bar">
   <cover-view class="tab-bar-border"></cover-view>
   <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
-    <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
-    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+    <cover-view class="item-wrapper">
+        <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
+        <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+        <!-- 购物车显示本地的商品的数量，注意顺序必须要放到图片下面 -->
+        <cover-view class="cart-count" wx:if="{{index == 2}}">
+            {{cartCount}}
+        </cover-view>
+    </cover-view>
   </cover-view>
 </cover-view>

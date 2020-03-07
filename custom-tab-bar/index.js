@@ -28,9 +28,27 @@ Component({
                 "iconPath": "../images/icon_me@3x.png",
                 "selectedIconPath": "../images/icon_me_active@3x.png"
             }
-        ]
+        ],
+
+        // 购物车数量
+        cartCount: ( wx.getStorageSync('goods') || [] ).length
     },
-    attached() {},
+
+    // 相当于页面的onload，只会执行一遍
+    attached() {
+    }, 
+
+    // 可以在自定义组件里面使用页面的生命周期 (问题是：页面的onshow生命周期不会执行)
+    pageLifetimes: {
+        // 类似页面的onShow方法
+        show: function() {
+            console.log("执行了tabbar onshow")
+            this.setData({
+                cartCount: (wx.getStorageSync('goods') || []).length
+            })
+        },
+    },
+
     methods: {
         switchTab(e) {
             const data = e.currentTarget.dataset
@@ -38,8 +56,6 @@ Component({
             wx.switchTab({
                 url
             })
-
-            console.log(data.index)
             
             this.setData({
                 selected: data.index

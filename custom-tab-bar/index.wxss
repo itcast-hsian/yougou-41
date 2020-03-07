@@ -36,3 +36,24 @@
 .tab-bar-item cover-view {
   font-size: 10px;
 }
+
+
+.item-wrapper{
+    position: relative
+}
+
+.cart-count{
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    line-height: 16px;
+    font-size: 14px;
+}
