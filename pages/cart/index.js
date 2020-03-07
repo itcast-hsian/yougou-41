@@ -10,7 +10,9 @@ Page({
         // 本地的商品列表
         goods: [],
         // 总价格
-        allPrice: 0
+        allPrice: 0,
+        // 全选
+        allSelect: true
     },
 
     /**
@@ -32,6 +34,9 @@ Page({
 
         // 计算总价格
         this.handleAllPrice();
+
+        // 判断全选的状态
+        this.handleAllSelect();
     },
 
     // 获取收货地址
@@ -161,5 +166,38 @@ Page({
 
         // 计算总价格
         this.handleAllPrice();
+
+        // 判断全选的状态
+        this.handleAllSelect();
+    },
+
+    // 判断全选的状态
+    handleAllSelect(){
+        // 使用some写法
+        // const select = this.data.goods.some(v => {
+        //     return !v.select;
+        // })
+       
+
+        // 先假设所有的商品都是选中状态
+        let currentSelect = true;
+
+        // 遍历所有的商品，只要有一个商品状态是false,select就等于false
+        this.data.goods.forEach(v => {
+            // 如果已经有一个商品状态是false，后面的循环不用再判断了
+            if (currentSelect === false){
+                return;
+            }
+
+            // 把全选的中状态修改为false
+            if(v.select === false){
+                currentSelect = false;
+            }
+        });
+
+        // 保存全选状态
+        this.setData({
+            allSelect: currentSelect
+        });
     }
 })

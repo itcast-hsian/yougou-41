@@ -80,7 +80,7 @@
     <!-- 全选和总价格 -->
     <view class="checkout">
         <view class="allselect">
-            <icon type="success" color="red"></icon>
+            <icon type="success" color="{{allSelect ? 'red' : 'gray'}}"></icon>
             全选
         </view>
         <view class="allprice">
