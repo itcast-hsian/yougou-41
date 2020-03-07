@@ -62,8 +62,11 @@ Page({
         let price = 0;
         // 循环添加商品的价格
         this.data.goods.forEach(v => {
-            // v是数组的对象
-            price += v.goods_price * v.number;
+            // 判断商品是否是选中状态
+            if(v.select){
+                // v是数组的对象
+                price += v.goods_price * v.number;
+            }
         })
 
         // 修改总价格
@@ -132,6 +135,24 @@ Page({
 
         // 修改商品的数量
         this.data.goods[index].number = value;
+
+        // 重新修改data的goods的值
+        this.setData({
+            goods: this.data.goods
+        });
+
+        // 计算总价格
+        this.handleAllPrice();
+    },
+
+    // 点击选中的图标
+    handleSelect(e){
+        // index当前点击的商品
+        const { index } = e.currentTarget.dataset;
+        // 当前商品的选中状态
+        const { select } = this.data.goods[index];
+        // 取反修改当前商品的选中状态
+        this.data.goods[index].select = !select;
 
         // 重新修改data的goods的值
         this.setData({
