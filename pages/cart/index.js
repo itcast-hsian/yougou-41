@@ -27,6 +27,13 @@ Page({
     },
 
     onShow(){
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().setData({
+                selected: 2
+            })
+        }
+
         // 因为data和onload只会执行一次，所以需要在每次打开页面都获取一次本地的数据
         this.setData({
             goods: wx.getStorageSync("goods") || []

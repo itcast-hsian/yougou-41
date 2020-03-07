@@ -29,6 +29,15 @@ Page({
         })
     },
 
+    onShow(){
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().setData({
+                selected: 1
+            })
+        }
+    },
+
     // 点击切换左边菜单栏时候触发
     handleClick(e){
         // index参数
