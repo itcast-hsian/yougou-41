@@ -55,7 +55,10 @@
                         data-number="{{-1}}"
                         data-index="{{index}}">-</view>
 
-                        <input value="{{item.number}}"></input>
+                        <input value="{{item.number}}" 
+                        bindblur="handleBlur" 
+                        type="number"
+                        data-index="{{index}}"></input>
 
                         <!-- 点击数量加1 -->
                         <view class="calc-button" 

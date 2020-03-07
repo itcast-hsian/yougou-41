@@ -107,12 +107,36 @@ Page({
             })
         }
 
-
         // 重新修改data的goods的值
         this.setData({
             goods: this.data.goods
         });
         
+        // 计算总价格
+        this.handleAllPrice();
+    },
+
+    // 通过输入框编辑商品的数量
+    handleBlur(e){
+        // index当前点击的商品
+        const {index} = e.currentTarget.dataset;
+        // value是输入框的值
+        let {value} = e.detail;
+        // 转换数量
+        value = Math.floor(Number(value)) 
+
+        // 如果数量小于1，就等于1
+        if (value < 1){
+            value = 1;
+        }
+
+        // 修改商品的数量
+        this.data.goods[index].number = value;
+
+        // 重新修改data的goods的值
+        this.setData({
+            goods: this.data.goods
+        });
 
         // 计算总价格
         this.handleAllPrice();
