@@ -30,7 +30,8 @@ Page({
         if (typeof this.getTabBar === 'function' &&
             this.getTabBar()) {
             this.getTabBar().setData({
-                selected: 2
+                selected: 2,
+                cartCount: (wx.getStorageSync('goods') || []).length
             })
         }
 
@@ -117,7 +118,10 @@ Page({
                     // 重新修改data的goods的值
                     this.setData({
                         goods: this.data.goods
-                    })
+                    });
+
+                    // 计算总价格
+                    this.handleAllPrice();
                 }
             })
         }

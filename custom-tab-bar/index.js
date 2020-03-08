@@ -34,20 +34,17 @@ Component({
         cartCount: ( wx.getStorageSync('goods') || [] ).length
     },
 
-    // 相当于页面的onload，只会执行一遍
-    attached() {
-    }, 
-
     // 可以在自定义组件里面使用页面的生命周期 (问题是：页面的onshow生命周期不会执行)
-    pageLifetimes: {
-        // 类似页面的onShow方法
-        show: function() {
-            console.log("执行了tabbar onshow")
-            this.setData({
-                cartCount: (wx.getStorageSync('goods') || []).length
-            })
-        },
-    },
+    // pageLifetimes: {
+    //     // 类似页面的onShow方法
+    //     show: function () {
+    //         console.log("执行了tabbar onshow")
+    //         this.setData({
+    //             cartCount: (wx.getStorageSync('goods') || []).length
+    //         })
+    //     },
+    // },
+    
 
     methods: {
         switchTab(e) {
