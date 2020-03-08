@@ -1,0 +1,4 @@
+<view class="container">
+    <!-- 必须要使用button组件，只有button才可以发起授权 -->
+    <button type="primary" open-type="getUserInfo" bindgetuserinfo="handleUserInfo">授权</button>
+</view>

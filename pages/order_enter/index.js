@@ -79,5 +79,25 @@ Page({
 
         // 修改本地的数据
         wx.setStorageSync("goods", this.data.goods)
+    },
+
+    // 立即支付的事件
+    handlePay(){
+
+        // 先判断本地有没token
+        const token = wx.getStorageSync("token");
+
+        // 如果没有token
+        if (!token){
+            // 跳转到授权页
+            wx.navigateTo({
+                url: '/pages/authorize/index',
+            })
+        }else{
+
+        }
+
+        
+
     }
 })
