@@ -1,4 +1,5 @@
-// pages/cart/index.js
+import request from "../../utils/request.js"
+
 Page({
 
     /**
@@ -94,7 +95,60 @@ Page({
                 url: '/pages/authorize/index',
             })
         }else{
+            // 如果有token
+            let { allPrice, address, goods } = this.data;
 
+            // 返回一个接口需要的商品数组
+            goods = goods.map(v => {
+                return {
+                    goods_id: v.goods_id,
+                    goods_number: v.number,
+                    goods_price: v.goods_price
+                }
+            })
+
+            // 1.创建订单
+            request({
+                url: "/my/orders/create",
+                method: "POST",
+                header: {
+                    Authorization: token
+                },
+                data: {
+                    // 创建订单需要的参数
+                    order_price: allPrice,
+                    consignee_addr: address.name + address.tel + address.detail,
+                    goods
+                }
+            }).then(res => {
+                // 订单创建成功的提示
+                wx.showToast({
+                    title: '订单创建成功',
+                    type: "success"
+                })
+
+                // 2.发起支付,请求支付参数
+                request({
+                    url: "/my/orders/req_unifiedorder",
+                    method: "POST",
+                    header: {
+                        Authorization: token
+                    },
+                    data: {
+                        // 订单编号
+                        order_number: res.data.message.order_number
+                    }
+                }).then(res => {
+                    // 支付需要的参数
+                    const {pay} = res.data.message;
+
+                    // 3.发起微信支付
+                    wx.requestPayment(pay)
+                })
+                
+            })   
+
+            
         }
 
         

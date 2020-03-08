@@ -37,12 +37,21 @@ Page({
                     }
 
                     // 请求接口获取token
+                    // 注意调用登录的接口必需要替换项目的appid
                     request({
                         url: "/users/wxlogin",
                         data,
                         method: "POST"
                     }).then(res => {
-                        console.log(res)
+
+                        // 获取token
+                        const {token} = res.data.message;
+
+                        // 把token保存到本地
+                        wx.setStorageSync("token", token);
+
+                        // 返回是上一个页面
+                        wx.navigateBack();
                     })
                     
                 } else {

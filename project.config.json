@@ -16,7 +16,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.2",
-	"appid": "wx1bc1bd0ed33ee0a3",
+	"appid": "wxfb52f2d7b2f6123a",
 	"projectname": "%E9%BB%91%E9%A9%AC%E4%BC%98%E8%B4%AD",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -50,8 +50,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/authorize/index",
-					"pathName": "pages/authorize/index",
+					"name": "pages/order_enter/index",
+					"pathName": "pages/order_enter/index",
 					"query": "id=55110",
 					"scene": null
 				}
