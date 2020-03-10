@@ -145,13 +145,17 @@ Page({
                     // 3.发起微信支付
                     wx.requestPayment(pay)
                 })
-                
-            })   
 
-            
+                // 订单创建成功后把购物车select为true的商品删除掉
+                // filter会返回一个新数组，循环里面return为true就会当前项加入新数组
+                const filterGoods = this.data.goods.filter(v => {
+                    // 只保留select为false的元素
+                    return !v.select;
+                });
+
+                // 修改本地的数据
+                wx.setStorageSync("goods", filterGoods)
+            })    
         }
-
-        
-
     }
 })
