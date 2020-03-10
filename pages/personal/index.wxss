@@ -1,1 +1,103 @@
-/* pages/personal/index.wxss */
+page{
+    background: #eee;
+}
+
+.user-info{
+    height: 420rpx;
+    background: #ff2d4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconfont{
+    color: #fff;
+}
+
+.user{
+    text-align: center;
+    color:#fff;
+    margin: 0 40rpx;
+}
+.avatar{
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px #fff solid;
+    margin-bottom: 10rpx;
+}
+
+.star-list{
+    margin: 0 20rpx;
+    background: #fff;
+    display: flex;
+    height: 120rpx;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: -20rpx;
+}
+
+.star-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+.order-content{
+    margin: 0 20rpx;
+    background: #fff;
+}
+
+.order-title{
+    height: 80rpx;  
+    line-height: 80rpx;
+    padding-left: 20rpx;
+    border-bottom: 1px #eee solid;
+}
+
+.order-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.order-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20rpx 0;
+    font-size: 13px;
+}
+
+.order-item .iconfont{
+    color: red;
+    font-size: 28px;
+}
+
+.navbar{
+    margin: 20rpx;
+    background: #fff;
+    padding: 0  20rpx;
+}
+
+.navbar-item{
+    display: flex;
+    justify-content: space-between;
+    height: 80rpx;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px #eee solid;
+}
+
+.arrow{
+    width: 8px;
+    height: 8px;
+    border-top: 1px #999 solid;
+    border-left: 1px #999 solid;
+    transform: rotate(135deg)
+}

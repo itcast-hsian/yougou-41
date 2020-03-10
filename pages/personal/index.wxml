@@ -1,2 +1,77 @@
-<!--pages/personal/index.wxml-->
-<text>pages/personal/index.wxml</text>
+<view class="container">
+    <!-- 用户的信息 -->
+    <view class="user-info">
+        <view class="iconfont icon-icon_set_up"></view>
+        <view class="user">
+        <!-- 不需要授权就可以获取头像
+        文档地址：https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserInfo.html -->
+            <view  class="avatar">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <open-data type="userNickName"></open-data>
+        </view>
+        <view class="iconfont icon-dakaihuihua"></view>
+    </view>
+
+    <!-- 收藏关注的列表 -->
+    <view class="star-list">
+        <view class="star-item">
+            <text>0</text>
+            <text>收藏的店铺</text>
+        </view>
+        <view class="star-item">
+            <text>0</text>
+            <text>收藏的商品</text>
+        </view>
+        <view class="star-item">
+            <text>0</text>
+            <text>关注的商品</text>
+        </view>
+        <view class="star-item">
+            <text>0</text>
+            <text>我的足迹</text>
+        </view>
+    </view>
+
+    <!-- 我的订单 -->
+    <view class="order-content">
+        <view class="order-title">
+            我的订单
+        </view>
+        <view class="order-list">
+            <view class="order-item">
+                <view class="iconfont icon-daifukuan"></view>
+                <text>待付款</text>
+            </view>
+            <view class="order-item">
+                <view class="iconfont icon-icon3"></view>
+                <text>待收货</text>
+            </view>
+            <view class="order-item">
+                <view class="iconfont icon-icon5"></view>
+                <text>退款/退货</text>
+            </view>
+            <view class="order-item">
+                <view class="iconfont icon-icon_order"></view>
+                <text>全部订单</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="navbar">
+        <view class="navbar-item" bindtap="handleAddress">
+            <view>收货地址管理</view>
+            <view class="arrow"></view>
+        </view>
+        <view class="navbar-item" bindtap="handleContact">
+            <view>联系客服</view>
+            <view class="navbar-text">
+                400-464-654652
+            </view>
+        </view>
+        <view class="navbar-item">
+            <view>意见反馈</view>
+            <view class="arrow"></view>
+        </view>
+    </view>
+</view>
